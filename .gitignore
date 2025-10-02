@@ -1,0 +1,32 @@
+
+# --------------------------
+# PROJECT ROOT .gitignore
+# For MERN Stack (SavorLog)
+# --------------------------
+
+# 1. Dependencies and Build Output (for both frontend and backend)
+/node_modules
+/savorlog-frontend/dist    # Vite/React build output
+/savorlog-backend/build    # Common backend build directory
+
+# 2. Environment Variables (CRUCIAL FOR SECURITY)
+# Prevents MongoDB connection strings, API keys, and other secrets from being committed.
+# Ensure your secrets are in a .env file in the backend root!
+.env
+.env.*
+.env.local
+
+# 3. Node/npm specific
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.npm
+.eslintcache
+/coverage
+
+# 4. Operating System and Editor Files
+.DS_Store
+Thumbs.db
+.vscode/
+*.swp
