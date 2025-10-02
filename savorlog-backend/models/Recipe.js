@@ -1,60 +1,51 @@
+// savorlog-backend/models/Recipe.js (FIXED to match frontend structure)
 
-// models/Recipe.js
 const mongoose = require('mongoose');
 
-// --- Nested Schema for Ingredients ---
-const IngredientSchema = mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    quantity: {
-        type: String,
-        required: true
-    }
-    // Note: You could expand this with an 'unit' field later
-});
-
-// --- Main Recipe Schema ---
-const RecipeSchema = mongoose.Schema({
-    // User who created the recipe (optional for now, but good for future auth)
-    // user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }, 
-    
+// --- Main Recipe Schema (Simplified) ---
+const RecipeSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
-        trim: true,
-        unique: true
+        trim: true, // Removes whitespace from both ends of a string
+        // Note: Removed 'unique: true' to allow recipes with the same name if needed.
     },
-    description: {
-        type: String,
-        required: true
-    },
-    ingredients: [IngredientSchema], // Array of nested Ingredient objects
     
+    // FIX: Changed from nested array [IngredientSchema] to a simple string
+    // The frontend sends ingredients as a comma-separated string.
+    ingredients: {
+        type: String, 
+        required: true,
+    },
+    
+    // FIX: Changed from array of strings [String] to a single string
+    // The frontend sends instructions as a single block of text.
     instructions: {
-        type: [String], // An array of strings, where each string is a step
+        type: String, 
         required: true
     },
     
     // Key metadata fields
-    prepTime: { type: Number, default: 0 }, // In minutes
-    cookTime: { type: Number, default: 0 }, // In minutes
-    servings: { type: Number, default: 1 },
-    cuisine: { type: String, trim: true, default: 'General' },
-    
-    // Tags for filtering (e.g., 'Vegetarian', 'Quick', 'Dinner')
-    tags: {
-        type: [String],
-        default: []
+    // FIX: We only captured prepTime in the frontend form
+    prepTime: { 
+        type: Number, 
+        required: true, // Mark as required since the frontend form always sends it
+        default: 30 
+    }, 
+    cuisine: { 
+        type: String, 
+        trim: true, 
+        default: 'American' // Default matches the frontend form default
     },
     
-    // Basic rating system (for future updates)
+    // Metadata we are NOT currently using in the frontend, but keeping for reference:
+    /*
+    cookTime: { type: Number, default: 0 },
+    servings: { type: Number, default: 1 },
+    tags: { type: [String], default: [] },
     rating: { type: Number, default: 0, min: 0, max: 5 },
-    
-    // Image URL (we won't implement actual upload yet, just storage)
     imageUrl: { type: String, default: '' },
+    */
 
 }, {
     // Automatically adds 'createdAt' and 'updatedAt' timestamps
