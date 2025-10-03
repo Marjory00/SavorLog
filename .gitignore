@@ -30,3 +30,8 @@ pnpm-debug.log*
 Thumbs.db
 .vscode/
 *.swp
+
+# 5. Other
+/components/MealPlanner.jsx
+/components/RecipeForm.jsx
+/routes/mealplan.jsx
