@@ -1,0 +1,33 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Testing
+/coverage
+
+# Build output
+/dist
+
+# Editor/OS Files
+.DS_Store
+Thumbs.db
+
+# --------------------------
+# SECRET/CONFIGURATION FILES
+# --------------------------
+
+# Environment variables (Crucial for MongoDB/API Keys)
+# ASSUMING your MongoDB URI is stored in a .env file in the backend root
+.env
+.env.local
+.env.*.local
+
+# Vite/Next.js/etc. specific
+.vite/
+/out/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

@@ -1,0 +1,88 @@
+/* src/components/MealPlanner.css (Calendar Overrides - Themed) */
+
+/* * 1. Meal Planner Container Styling */
+.planner-container {
+    padding: 30px;
+    margin-bottom: 40px; 
+    background-color: var(--color-white); 
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.planner-container h3 {
+    color: var(--color-dark);
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+}
+
+/* ---------------------------------------------------- */
+/* * 2. React Big Calendar Overrides */
+/* ---------------------------------------------------- */
+
+.rbc-calendar {
+    font-family: var(--font-family-base);
+    height: 700px; 
+    border: 1px solid #EAECEE;
+    border-radius: 6px;
+}
+
+/* Toolbar (Navigation) */
+.rbc-toolbar button {
+    color: var(--color-dark);
+    background: #F8F9F9;
+    border: 1px solid #BDC3C7;
+}
+
+.rbc-toolbar button:hover {
+    background-color: #EAECEE;
+}
+
+.rbc-btn-group .rbc-active {
+    background-color: var(--color-primary) !important;
+    color: var(--color-white) !important;
+    border-color: var(--color-primary) !important;
+}
+
+/* Header (Day Names) */
+.rbc-header {
+    padding: 10px 0;
+    font-weight: 600;
+    color: var(--color-dark);
+    background-color: #F8F9F9;
+    border-bottom: 2px solid #BDC3C7;
+    font-size: 0.95rem;
+}
+
+/* Today's cell background color */
+.rbc-day-bg.rbc-today {
+    background-color: #F4F9F9; 
+}
+
+/* ---------------------------------------------------- */
+/* * 3. Event Styling (Scheduled Meals) */
+/* ---------------------------------------------------- */
+
+.rbc-event,
+.rbc-day-slot .rbc-event {
+    z-index: 10; 
+    background-color: var(--color-primary); 
+    color: white;
+    border: 1px solid #337A74;
+    border-radius: 3px;
+    padding: 3px 6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    line-height: 1.2;
+}
+
+.rbc-event:hover {
+    background-color: #4FB4AE; 
+}
+
+.rbc-addons-dnd-drag-container {
+    border: 2px dashed var(--color-primary);
+    background-color: rgba(51, 122, 116, 0.1); 
+    color: var(--color-dark);
+}

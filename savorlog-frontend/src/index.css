@@ -1,0 +1,69 @@
+/* src/index.css (Global Resets - Clean and Modern Base) */
+
+:root {
+  /* High-Contrast Color Palette (Teal/Gold) */
+  --color-primary: #337A74;    /* Deep Teal/Green for actions/accents */
+  --color-secondary: #FFD25B;  /* Muted Gold for highlights */
+  --color-dark: #2C3E50;       /* Dark Grey-Blue for text/headings */
+  --color-light: #ECF0F1;      /* Very Light Grey for main backgrounds */
+  --color-white: #ffffff;
+  --font-family-base: 'Roboto', sans-serif;
+  
+  font-family: var(--font-family-base);
+  line-height: 1.6; 
+  font-weight: 400;
+
+  color: var(--color-dark); 
+  background-color: var(--color-light); 
+  
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Global Reset */
+* {
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* Links */
+a {
+  font-weight: 500;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: #245854; /* Slightly darker primary */
+}
+
+/* Buttons (Base Style) */
+button {
+  border-radius: 6px;
+  border: none;
+  padding: 0.7em 1.4em;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+button:hover {
+  background-color: #2a6460;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+button:focus,
+button:focus-visible {
+  outline: 3px solid var(--color-secondary);
+  outline-offset: 2px;
+}
