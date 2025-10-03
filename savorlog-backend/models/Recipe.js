@@ -1,4 +1,4 @@
-// savorlog-backend/models/Recipe.js (Minor Enhancement)
+// savorlog-backend/models/Recipe.js
 
 const mongoose = require('mongoose');
 
@@ -13,7 +13,7 @@ const RecipeSchema = new mongoose.Schema({
         default: 'General'
     },
     ingredients: {
-        // ENHANCEMENT: Changed from String to [String] to store a list of ingredients
+        // Changed from String to [String] to store a list of ingredients
         type: [String], 
         required: [true, 'Ingredients list is required.'],
         // Adding minlength validation to ensure at least one ingredient is present (optional)

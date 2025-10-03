@@ -1,4 +1,4 @@
-// savorlog-backend/server.js (Enhanced for Clarity)
+// savorlog-backend/server.js
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -25,9 +25,9 @@ app.use(express.urlencoded({ extended: false }));
 const connectDB = async () => {
     try {
         await mongoose.connect(process.env.MONGO_URI); 
-        console.log('✅ MongoDB connected successfully.');
+        console.log(' MongoDB connected successfully.');
     } catch (err) {
-        console.error('❌ MongoDB connection failed:', err.message);
+        console.error('MongoDB connection failed:', err.message);
         process.exit(1);
     }
 };
@@ -45,7 +45,7 @@ const requireRoute = (path) => {
         return require(path);
     } catch (err) {
         if (err.code === 'MODULE_NOT_FOUND') {
-            console.error(`\n❌ CRITICAL ERROR: Route file not found at ${path}.`);
+            console.error(`\n CRITICAL ERROR: Route file not found at ${path}.`);
             console.error(`Please ensure the file exists and is named correctly (e.g., './routes/recipes.js').`);
             process.exit(1);
         }
@@ -71,4 +71,4 @@ app.get('/', (req, res) => {
 // --- Server Start ---
 // ---------------------------
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server listening on port ${PORT}`));
+app.listen(PORT, () => console.log(` Server listening on port ${PORT}`));
