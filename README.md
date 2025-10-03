@@ -12,12 +12,12 @@ The application is built using the MERN stack:
 * **React:** Frontend user interface (this repository).
 
 
------
-
-![SavorLog Screenshot](Savorlog-image.png)
 
 
-----
+![App User Interface](assets/Savorlog-image.png)
+
+
+
 
 
 ***
