@@ -13,9 +13,11 @@ The application is built using the MERN stack:
 
 
 
+## 🍽️ Application Overview
 
-![Image Project](./assets/Savorlog-image.png)
+**SavorLog** helps you organize your cooking life.
 
+![SavorLog Screenshot of Meal Planner](assets/Savorlog-image.png)
 
 
 
