@@ -14,7 +14,7 @@ The application is built using the MERN stack:
 
 
 
-![App User Interface](assets/Savorlog-image.png)
+![Image Project](./assets/Savorlog-image.png)
 
 
 
