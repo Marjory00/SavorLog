@@ -1,8 +1,9 @@
+// models/MealPlan.js (Already Correct)
 
-// models/MealPlan.js
 const mongoose = require('mongoose');
 
-const MealPlanSchema = mongoose.Schema({
+// It's common Mongoose practice to define the Schema object and then register it.
+const MealPlanSchema = new mongoose.Schema({ // Use 'new mongoose.Schema' for consistency
     // Link to the Recipe model using its ObjectId
     recipe: {
         type: mongoose.Schema.Types.ObjectId,
@@ -30,4 +31,5 @@ const MealPlanSchema = mongoose.Schema({
     timestamps: true
 });
 
+// The model registration is correct.
 module.exports = mongoose.model('MealPlan', MealPlanSchema);

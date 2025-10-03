@@ -1,54 +1,34 @@
-// savorlog-backend/models/Recipe.js (FIXED to match frontend structure)
+// savorlog-backend/models/Recipe.js (Minor Enhancement)
 
 const mongoose = require('mongoose');
 
-// --- Main Recipe Schema (Simplified) ---
 const RecipeSchema = new mongoose.Schema({
     title: {
         type: String,
-        required: true,
-        trim: true, // Removes whitespace from both ends of a string
-        // Note: Removed 'unique: true' to allow recipes with the same name if needed.
+        required: [true, 'Title is required for the recipe.'], 
+        trim: true 
     },
-    
-    // FIX: Changed from nested array [IngredientSchema] to a simple string
-    // The frontend sends ingredients as a comma-separated string.
+    cuisine: {
+        type: String,
+        default: 'General'
+    },
     ingredients: {
-        type: String, 
-        required: true,
+        // ENHANCEMENT: Changed from String to [String] to store a list of ingredients
+        type: [String], 
+        required: [true, 'Ingredients list is required.'],
+        // Adding minlength validation to ensure at least one ingredient is present (optional)
+        // minlength: [1, 'The recipe must have at least one ingredient.'],
     },
-    
-    // FIX: Changed from array of strings [String] to a single string
-    // The frontend sends instructions as a single block of text.
     instructions: {
-        type: String, 
-        required: true
+        type: String,
+        required: [true, 'Instructions are required.'],
     },
-    
-    // Key metadata fields
-    // FIX: We only captured prepTime in the frontend form
-    prepTime: { 
-        type: Number, 
-        required: true, // Mark as required since the frontend form always sends it
-        default: 30 
-    }, 
-    cuisine: { 
-        type: String, 
-        trim: true, 
-        default: 'American' // Default matches the frontend form default
+    prepTime: {
+        type: Number,
+        required: [true, 'Preparation time is required.'],
+        min: [1, 'Preparation time must be at least 1 minute.']
     },
-    
-    // Metadata we are NOT currently using in the frontend, but keeping for reference:
-    /*
-    cookTime: { type: Number, default: 0 },
-    servings: { type: Number, default: 1 },
-    tags: { type: [String], default: [] },
-    rating: { type: Number, default: 0, min: 0, max: 5 },
-    imageUrl: { type: String, default: '' },
-    */
-
 }, {
-    // Automatically adds 'createdAt' and 'updatedAt' timestamps
     timestamps: true 
 });
 
