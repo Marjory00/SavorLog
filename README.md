@@ -11,6 +11,15 @@ The application is built using the MERN stack:
 * **Express.js & Node.js:** Backend API server.
 * **React:** Frontend user interface (this repository).
 
+
+-----
+
+![SavorLog Screenshot](Savorlog-image.png)
+
+
+----
+
+
 ***
 
 ## 🚀 Getting Started
